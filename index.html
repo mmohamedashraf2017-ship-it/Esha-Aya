@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,385 +8,885 @@
 <title>❤️ Ashraf & Aya ❤️</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-    min-height:100vh;
-    font-family:Tahoma, Arial, sans-serif;
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    color: #5a2434;
+
     background:
-        radial-gradient(circle at top,#fff8fa 0%,#ffdfe8 45%,#f4b8ca 100%);
-    color:#542437;
-    overflow-x:hidden;
+        radial-gradient(
+            circle at top,
+            #fff7fa 0%,
+            #f9dfe8 45%,
+            #efbfd0 100%
+        );
+
+    overflow-x: hidden;
 }
 
-/* القلوب */
-.hearts{
-    position:fixed;
-    inset:0;
-    overflow:hidden;
-    pointer-events:none;
-    z-index:1;
+
+/* =========================
+   HEARTS BACKGROUND
+========================= */
+
+.hearts {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
 }
 
-.heart{
-    position:absolute;
-    bottom:-60px;
-    font-size:28px;
-    animation:float 9s linear infinite;
-    opacity:0;
+.heart {
+    position: absolute;
+
+    bottom: -80px;
+
+    font-size: 30px;
+
+    opacity: 0;
+
+    animation:
+        floatHeart 12s linear infinite;
 }
 
-.heart:nth-child(1){left:8%;animation-delay:0s}
-.heart:nth-child(2){left:25%;animation-delay:2s}
-.heart:nth-child(3){left:45%;animation-delay:4s}
-.heart:nth-child(4){left:65%;animation-delay:1s}
-.heart:nth-child(5){left:82%;animation-delay:3s}
-.heart:nth-child(6){left:92%;animation-delay:6s}
+.heart:nth-child(1) {
+    left: 8%;
+    animation-delay: 0s;
+}
 
-@keyframes float{
-    0%{
-        transform:translateY(0) rotate(0deg);
-        opacity:0;
+.heart:nth-child(2) {
+    left: 25%;
+    animation-delay: 3s;
+}
+
+.heart:nth-child(3) {
+    left: 45%;
+    animation-delay: 6s;
+}
+
+.heart:nth-child(4) {
+    left: 65%;
+    animation-delay: 2s;
+}
+
+.heart:nth-child(5) {
+    left: 82%;
+    animation-delay: 8s;
+}
+
+.heart:nth-child(6) {
+    left: 92%;
+    animation-delay: 5s;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform:
+            translateY(0)
+            scale(.7)
+            rotate(0deg);
+
+        opacity: 0;
     }
-    15%{opacity:.8}
-    100%{
-        transform:translateY(-110vh) rotate(25deg);
-        opacity:0;
+
+    15% {
+        opacity: .7;
+    }
+
+    50% {
+        transform:
+            translateY(-50vh)
+            scale(1)
+            rotate(15deg);
+
+        opacity: .5;
+    }
+
+    100% {
+        transform:
+            translateY(-115vh)
+            scale(1.3)
+            rotate(-15deg);
+
+        opacity: 0;
     }
 }
 
-/* شاشة الباسورد */
-#lockScreen{
-    position:fixed;
-    inset:0;
-    z-index:1000;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
+
+/* =========================
+   PASSWORD SCREEN
+========================= */
+
+#lockScreen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
     background:
-        radial-gradient(circle at top,#fffafb,#ffdce7 55%,#efb0c5);
+        radial-gradient(
+            circle at top,
+            #fffafd,
+            #f9dfe8 55%,
+            #edb8cb
+        );
 }
 
-.lockBox{
-    width:100%;
-    max-width:500px;
-    background:rgba(255,255,255,.94);
-    border-radius:35px;
-    padding:42px 28px;
-    text-align:center;
-    box-shadow:0 20px 60px rgba(100,30,60,.18);
+
+.lockBox {
+
+    width: 100%;
+
+    max-width: 600px;
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,.95);
+
+    border-radius: 35px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(100,30,60,.22);
+
+    animation:
+        boxAppear 1s ease;
 }
 
-.bigHeart{
-    font-size:90px;
-    line-height:1;
-    animation:pulse 1.8s infinite;
-}
+@keyframes boxAppear {
 
-@keyframes pulse{
-    0%,100%{transform:scale(1)}
-    50%{transform:scale(1.12)}
-}
-
-.names{
-    margin-top:20px;
-    font-size:42px;
-    font-weight:bold;
-    color:#5b2639;
-}
-
-.subtitle{
-    margin-top:20px;
-    font-size:24px;
-    line-height:1.8;
-}
-
-.hint{
-    margin:15px 0 25px;
-    font-size:22px;
-}
-
-#password{
-    width:100%;
-    height:70px;
-    border:3px solid #dba0b5;
-    border-radius:22px;
-    outline:none;
-    text-align:center;
-    font-size:32px;
-    letter-spacing:12px;
-    color:#8d294f;
-    background:#fff;
-}
-
-#password:focus{
-    border-color:#a8325c;
-}
-
-.openBtn{
-    width:100%;
-    margin-top:25px;
-    height:72px;
-    border:none;
-    border-radius:22px;
-    background:#ae3d63;
-    color:white;
-    font-size:27px;
-    font-weight:bold;
-    cursor:pointer;
-    box-shadow:0 10px 25px rgba(174,61,99,.3);
-}
-
-.openBtn:active{
-    transform:scale(.97);
-}
-
-#error{
-    color:#c6284f;
-    font-size:19px;
-    margin-top:15px;
-    min-height:25px;
-}
-
-/* المحتوى */
-#mainContent{
-    display:none;
-    position:relative;
-    z-index:5;
-    padding:35px 15px 70px;
-}
-
-.container{
-    max-width:850px;
-    margin:auto;
-}
-
-.header{
-    text-align:center;
-    margin-bottom:30px;
-}
-
-.headerHeart{
-    font-size:65px;
-    animation:pulse 2s infinite;
-}
-
-.header h1{
-    font-size:42px;
-    margin-top:10px;
-    color:#7d2948;
-}
-
-.fromTo{
-    margin-top:15px;
-    font-size:25px;
-    font-weight:bold;
-    color:#a8325c;
-}
-
-.card{
-    background:rgba(255,255,255,.94);
-    border-radius:30px;
-    padding:35px 25px;
-    box-shadow:0 15px 45px rgba(100,30,60,.15);
-    text-align:center;
-}
-
-.message{
-    font-size:23px;
-    line-height:2.15;
-    color:#542437;
-}
-
-.message .special{
-    font-size:28px;
-    font-weight:bold;
-    color:#a8325c;
-    margin-bottom:15px;
-}
-
-.message p{
-    margin-bottom:18px;
-}
-
-/* الصور */
-.galleryTitle{
-    margin-top:35px;
-    margin-bottom:20px;
-    text-align:center;
-    font-size:30px;
-    color:#8d294f;
-}
-
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-}
-
-.photo{
-    overflow:hidden;
-    border-radius:25px;
-    background:white;
-    padding:7px;
-    box-shadow:0 10px 30px rgba(100,30,60,.18);
-    animation:photoFloat 4s ease-in-out infinite;
-}
-
-.photo:nth-child(2){animation-delay:.7s}
-.photo:nth-child(3){animation-delay:1.4s}
-.photo:nth-child(4){animation-delay:2.1s}
-
-.photo img{
-    display:block;
-    width:100%;
-    aspect-ratio:1/1;
-    object-fit:cover;
-    border-radius:19px;
-    transition:transform .6s ease;
-}
-
-.photo:hover img{
-    transform:scale(1.08) rotate(1deg);
-}
-
-@keyframes photoFloat{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-8px)}
-}
-
-.footer{
-    text-align:center;
-    margin-top:35px;
-    font-size:24px;
-    line-height:1.8;
-    color:#8d294f;
-}
-
-.date{
-    margin-top:10px;
-    font-size:21px;
-}
-
-/* زر الموسيقى */
-.musicButton{
-    position:fixed;
-    left:18px;
-    bottom:18px;
-    z-index:50;
-    width:58px;
-    height:58px;
-    border:none;
-    border-radius:50%;
-    background:#ae3d63;
-    color:white;
-    font-size:25px;
-    box-shadow:0 8px 25px rgba(0,0,0,.2);
-    cursor:pointer;
-}
-
-/* موبايل */
-@media(max-width:600px){
-
-    .lockBox{
-        padding:35px 20px;
-        border-radius:28px;
+    from {
+        opacity: 0;
+        transform: scale(.85) translateY(30px);
     }
 
-    .bigHeart{
-        font-size:75px;
-    }
-
-    .names{
-        font-size:34px;
-    }
-
-    .subtitle{
-        font-size:21px;
-    }
-
-    .hint{
-        font-size:19px;
-    }
-
-    #password{
-        height:65px;
-        font-size:28px;
-    }
-
-    .openBtn{
-        font-size:24px;
-    }
-
-    .header h1{
-        font-size:32px;
-    }
-
-    .fromTo{
-        font-size:21px;
-    }
-
-    .card{
-        padding:25px 17px;
-    }
-
-    .message{
-        font-size:20px;
-        line-height:2;
-    }
-
-    .message .special{
-        font-size:24px;
-    }
-
-    .gallery{
-        grid-template-columns:1fr;
-        gap:20px;
-    }
-
-    .galleryTitle{
-        font-size:27px;
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
     }
 }
+
+
+.bigHeart {
+
+    font-size: 90px;
+
+    margin-bottom: 15px;
+
+    animation:
+        heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+
+.lockBox h1 {
+
+    font-size: 40px;
+
+    color: #6d2943;
+
+    margin-bottom: 20px;
+}
+
+
+.lockBox h2 {
+
+    font-size: 28px;
+
+    color: #9d3158;
+
+    margin-bottom: 20px;
+}
+
+
+.lockBox p {
+
+    font-size: 23px;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+
+#password {
+
+    width: 100%;
+
+    height: 70px;
+
+    border: 3px solid #dfa1b8;
+
+    border-radius: 20px;
+
+    outline: none;
+
+    text-align: center;
+
+    font-size: 32px;
+
+    letter-spacing: 12px;
+
+    color: #7e2948;
+
+    background: #fff;
+
+    margin-bottom: 20px;
+}
+
+#password:focus {
+
+    border-color: #ad4265;
+
+    box-shadow:
+        0 0 0 5px
+        rgba(173,66,101,.1);
+}
+
+
+.openButton {
+
+    width: 100%;
+
+    min-height: 70px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #ad3d62;
+
+    color: white;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.openButton:hover {
+
+    transform: translateY(-3px);
+
+    background: #922f50;
+}
+
+.openButton:active {
+
+    transform: scale(.98);
+}
+
+
+#error {
+
+    color: #c62828;
+
+    font-size: 20px;
+
+    margin-top: 15px;
+
+    min-height: 25px;
+}
+
+
+/* =========================
+   MAIN PAGE
+========================= */
+
+#mainContent {
+
+    display: none;
+
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    padding:
+        40px 15px
+        80px;
+}
+
+
+/* =========================
+   TOP TITLE
+========================= */
+
+.topTitle {
+
+    width: 100%;
+
+    max-width: 800px;
+
+    margin: 0 auto 45px;
+
+    text-align: center;
+}
+
+.topTitle h1 {
+
+    font-size: 42px;
+
+    color: #8e2e51;
+
+    line-height: 1.5;
+
+    text-shadow:
+        0 3px 10px
+        rgba(120,30,60,.12);
+}
+
+.topTitle p {
+
+    font-size: 24px;
+
+    margin-top: 15px;
+
+    color: #754054;
+}
+
+
+/* =========================
+   PHOTOS SECTION
+========================= */
+
+.photosSection {
+
+    width: 100%;
+
+    max-width: 700px;
+
+    margin: 0 auto 70px;
+
+    text-align: center;
+}
+
+
+.photosSection h2 {
+
+    font-size: 34px;
+
+    color: #9d3158;
+
+    margin-bottom: 35px;
+}
+
+
+.photoCard {
+
+    width: 100%;
+
+    margin:
+        0 auto
+        45px;
+
+    perspective: 1200px;
+
+    animation:
+        cardAppear 1s ease both;
+}
+
+
+.photoCard:nth-child(2) {
+    animation-delay: .3s;
+}
+
+.photoCard:nth-child(3) {
+    animation-delay: .6s;
+}
+
+.photoCard:nth-child(4) {
+    animation-delay: .9s;
+}
+
+.photoCard:nth-child(5) {
+    animation-delay: 1.2s;
+}
+
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            scale(.9);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+.photoCard img {
+
+    display: block;
+
+    width: 100%;
+
+    max-height: 650px;
+
+    object-fit: cover;
+
+    border-radius: 30px;
+
+    border:
+        7px solid
+        rgba(255,255,255,.95);
+
+    box-shadow:
+        0 20px 45px
+        rgba(100,30,60,.25);
+
+    animation:
+        flipPhoto 2s ease both;
+
+    transform-style: preserve-3d;
+}
+
+
+@keyframes flipPhoto {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            rotateY(90deg)
+            scale(.8);
+    }
+
+    45% {
+
+        opacity: 1;
+
+        transform:
+            rotateY(-15deg)
+            scale(1.03);
+    }
+
+    70% {
+
+        transform:
+            rotateY(8deg)
+            scale(1.01);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            rotateY(0deg)
+            scale(1);
+    }
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.messageSection {
+
+    width: 100%;
+
+    max-width: 750px;
+
+    margin: 0 auto;
+
+    padding: 45px 30px;
+
+    background:
+        rgba(255,255,255,.94);
+
+    border-radius: 35px;
+
+    box-shadow:
+        0 20px 55px
+        rgba(100,30,60,.18);
+
+    text-align: center;
+}
+
+
+.fromTo {
+
+    font-size: 34px;
+
+    font-weight: bold;
+
+    color: #a7355d;
+
+    margin-bottom: 30px;
+
+    direction: ltr;
+}
+
+
+.messageSection h2 {
+
+    font-size: 32px;
+
+    line-height: 1.8;
+
+    color: #9d3158;
+
+    margin-bottom: 30px;
+}
+
+
+.messageSection p {
+
+    font-size: 25px;
+
+    line-height: 2.1;
+
+    color: #5a2434;
+
+    margin-bottom: 25px;
+}
+
+
+.finalLove {
+
+    font-size: 36px !important;
+
+    font-weight: bold;
+
+    color: #a7355d !important;
+
+    margin-top: 35px;
+}
+
+
+.signature {
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    color: #9d3158;
+
+    margin-top: 30px;
+
+    direction: ltr;
+}
+
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.musicButton {
+
+    position: fixed;
+
+    left: 20px;
+
+    bottom: 25px;
+
+    width: 70px;
+
+    height: 70px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #ad3d62;
+
+    color: white;
+
+    font-size: 30px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(100,30,60,.3);
+
+    cursor: pointer;
+
+    z-index: 5000;
+
+    animation:
+        musicPulse 2s infinite;
+}
+
+@keyframes musicPulse {
+
+    0%,100% {
+        box-shadow:
+            0 8px 25px
+            rgba(100,30,60,.3);
+    }
+
+    50% {
+        box-shadow:
+            0 8px 35px
+            rgba(180,50,90,.55);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    #mainContent {
+
+        padding:
+            30px 12px
+            70px;
+    }
+
+
+    .lockBox {
+
+        padding:
+            35px 20px;
+    }
+
+
+    .bigHeart {
+
+        font-size: 75px;
+    }
+
+
+    .lockBox h1 {
+
+        font-size: 32px;
+    }
+
+
+    .lockBox h2 {
+
+        font-size: 25px;
+    }
+
+
+    .lockBox p {
+
+        font-size: 20px;
+    }
+
+
+    #password {
+
+        height: 65px;
+
+        font-size: 28px;
+    }
+
+
+    .openButton {
+
+        font-size: 24px;
+
+        min-height: 65px;
+    }
+
+
+    .topTitle h1 {
+
+        font-size: 32px;
+    }
+
+
+    .topTitle p {
+
+        font-size: 21px;
+    }
+
+
+    .photosSection h2 {
+
+        font-size: 29px;
+    }
+
+
+    .photoCard {
+
+        margin-bottom: 35px;
+    }
+
+
+    .photoCard img {
+
+        border-width: 5px;
+
+        border-radius: 25px;
+
+        max-height: 600px;
+    }
+
+
+    .messageSection {
+
+        padding:
+            35px 18px;
+    }
+
+
+    .fromTo {
+
+        font-size: 27px;
+
+        line-height: 1.7;
+    }
+
+
+    .messageSection h2 {
+
+        font-size: 27px;
+
+        line-height: 1.8;
+    }
+
+
+    .messageSection p {
+
+        font-size: 21px;
+
+        line-height: 2;
+
+        margin-bottom: 22px;
+    }
+
+
+    .finalLove {
+
+        font-size: 29px !important;
+    }
+
+
+    .signature {
+
+        font-size: 23px;
+    }
+
+
+    .musicButton {
+
+        width: 62px;
+
+        height: 62px;
+
+        font-size: 26px;
+
+        left: 15px;
+
+        bottom: 18px;
+    }
+}
+
 </style>
 </head>
 
+
 <body>
 
-<!-- القلوب المتحركة -->
+
+<!-- =========================
+     HEARTS
+========================= -->
+
 <div class="hearts">
+
     <div class="heart">❤️</div>
     <div class="heart">💕</div>
-    <div class="heart">❤️</div>
     <div class="heart">💗</div>
-    <div class="heart">💖</div>
     <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">💕</div>
+
 </div>
 
-<!-- شاشة الباسورد -->
+
+<!-- =========================
+     PASSWORD
+========================= -->
+
 <div id="lockScreen">
 
     <div class="lockBox">
 
-        <div class="bigHeart">❤️</div>
+        <div class="bigHeart">
+            ❤️
+        </div>
 
-        <div class="names">
+        <h1>
             Ashraf ❤️ Aya
-        </div>
+        </h1>
 
-        <div class="subtitle">
-            رسالة خاصة إلى<br>
-            <strong>Aya</strong>
-        </div>
+        <h2>
+            رسالة خاصة إلى Aya
+        </h2>
 
-        <div class="hint">
-            💕 اكتبي الباسورد عشان تفتحي رسالتك 💕
-        </div>
+        <p>
+            اكتبي الباسورد عشان تفتحي رسالتك 💕
+        </p>
 
         <input
             type="password"
@@ -395,7 +896,10 @@ body{
             placeholder="••••"
         >
 
-        <button class="openBtn" onclick="openMessage()">
+        <button
+            class="openButton"
+            onclick="openMessage()"
+        >
             ❤️ افتحي رسالتك ❤️
         </button>
 
@@ -406,197 +910,324 @@ body{
 </div>
 
 
-<!-- المحتوى -->
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
 <div id="mainContent">
 
-    <div class="container">
 
-        <div class="header">
+    <!-- العنوان -->
 
-            <div class="headerHeart">❤️</div>
+    <div class="topTitle">
 
-            <h1>Ashraf ❤️ Aya</h1>
+        <h1>
+            ❤️ From Ashraf To Aya ❤️
+        </h1>
 
-            <div class="fromTo">
-                ❤️ From Ashraf To Aya ❤️
-            </div>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="message">
-
-                <div class="special">
-                    إلى آية… حبيبتي ومراتي وأجمل حاجة حصلت في حياتي ❤️
-                </div>
-
-                <p>
-                    من يوم ما دخلتي حياتي وأنا عرفت إن ربنا عوضني بيكي عن حاجات كتير.
-                </p>
-
-                <p>
-                    إنتِ مش بس مراتي… إنتِ صاحبتي، وبيتي، وأماني،
-                    والشخص اللي بحب أرجع له مهما كان يومي عامل إزاي. ❤️
-                </p>
-
-                <p>
-                    عشر سنين وإحنا مع بعض،
-                    وكل سنة بتعدي بتأكدلي إني اخترت الإنسانة الصح.
-                </p>
-
-                <p>
-                    ضحكتك بتفرحني، وجودك بيطمني،
-                    وحتى أبسط تفاصيل حياتنا مع بعض ليها مكان كبير في قلبي.
-                </p>
-
-                <p>
-                    يمكن مش كل يوم بعرف أقولك قد إيه أنا بحبك،
-                    لكن الحقيقة إنك دايمًا في قلبي،
-                    ووجودك في حياتي نعمة بحمد ربنا عليها.
-                </p>
-
-                <p>
-                    يا آية… نفسي أفضل جنبك العمر كله،
-                    نضحك سوا، ونكبر سوا،
-                    ونشوف ولادنا وهم بيكبروا قدام عينينا،
-                    وتفضل إيدك في إيدي مهما عدى بينا الزمن. ❤️
-                </p>
-
-                <p>
-                    ربنا يحفظك ليا، ويحفظ بيتنا،
-                    ويجمعنا دايمًا على الحب والرحمة والخير. 💍❤️
-                </p>
-
-                <div class="special">
-                    كل سنة وإنتِ حبيبتي ومراتي وأجمل آية في حياتي.
-                    <br>
-                    ❤️ بحبك يا آية ❤️
-                </div>
-
-            </div>
-
-
-            <div class="galleryTitle">
-                📸 أجمل ذكرياتنا ❤️
-            </div>
-
-            <div class="gallery">
-
-                <div class="photo">
-                    <img src="Y1.jpg" alt="Aya ❤️">
-                </div>
-
-                <div class="photo">
-                    <img src="Y2.jpg" alt="Aya ❤️">
-                </div>
-
-                <div class="photo">
-                    <img src="Y3.jpg" alt="Aya ❤️">
-                </div>
-
-                <div class="photo">
-                    <img src="Y4.jpg" alt="Aya ❤️">
-                </div>
-
-            </div>
-
-
-            <div class="footer">
-
-                ❤️ From Ashraf To Aya ❤️
-
-                <div class="date">
-                    مع بعض دايمًا ❤️💍
-                </div>
-
-            </div>
-
-        </div>
+        <p>
+            أجمل ذكرياتنا مع بعض 💕
+        </p>
 
     </div>
+
+
+    <!-- =========================
+         PHOTOS FIRST
+    ========================= -->
+
+    <section class="photosSection">
+
+        <h2>
+            📸 أجمل ذكرياتنا ❤️
+        </h2>
+
+
+        <div class="photoCard">
+
+            <img
+                src="Y1.jpg"
+                alt="ذكرى جميلة"
+            >
+
+        </div>
+
+
+        <div class="photoCard">
+
+            <img
+                src="Y2.jpg"
+                alt="ذكرى جميلة"
+            >
+
+        </div>
+
+
+        <div class="photoCard">
+
+            <img
+                src="Y3.jpg"
+                alt="ذكرى جميلة"
+            >
+
+        </div>
+
+
+        <div class="photoCard">
+
+            <img
+                src="Y4.jpg"
+                alt="ذكرى جميلة"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MESSAGE AFTER PHOTOS
+    ========================= -->
+
+    <section class="messageSection">
+
+
+        <div class="fromTo">
+
+            ❤️ From Ashraf To Aya ❤️
+
+        </div>
+
+
+        <h2>
+
+            إلى آية… حبيبتي ومراتي وأجمل حاجة حصلت في حياتي ❤️
+
+        </h2>
+
+
+        <p>
+
+            من يوم ما دخلتي حياتي وأنا عرفت إن ربنا عوضني بيكي
+            عن حاجات كتير.
+
+            إنتِ مش بس مراتي…
+            إنتِ صاحبتي، وبيتي، وأماني،
+            والشخص اللي بحب أرجع له مهما كان يومي عامل إزاي. ❤️
+
+        </p>
+
+
+        <p>
+
+            عشر سنين وإحنا مع بعض،
+            وكل سنة بتعدي بتأكدلي إني اخترت الإنسانة الصح.
+
+            ضحكتك بتفرحني،
+            وجودك بيطمني،
+            وحتى أبسط تفاصيل حياتنا مع بعض
+            ليها مكان كبير في قلبي.
+
+        </p>
+
+
+        <p>
+
+            يمكن مش كل يوم بعرف أقولك
+            قد إيه أنا بحبك،
+
+            لكن الحقيقة إنك دايمًا في قلبي،
+            ووجودك في حياتي نعمة بحمد ربنا عليها.
+
+        </p>
+
+
+        <p>
+
+            يا آية… نفسي أفضل جنبك العمر كله،
+
+            نضحك سوا،
+            ونكبر سوا،
+            ونشوف ولادنا وهم بيكبروا قدام عينينا،
+
+            وتفضل إيدك في إيدي
+            مهما عدى بينا الزمن. ❤️
+
+        </p>
+
+
+        <p>
+
+            ربنا يحفظك ليا،
+            ويحفظ بيتنا،
+
+            ويجمعنا دايمًا
+            على الحب والرحمة والخير. 💍❤️
+
+        </p>
+
+
+        <h2>
+
+            كل سنة وإنتِ حبيبتي ومراتي
+            وأجمل آية في حياتي.
+
+        </h2>
+
+
+        <p class="finalLove">
+
+            ❤️ بحبك يا آية ❤️
+
+        </p>
+
+
+        <div class="signature">
+
+            من Ashraf إلى Aya 💕
+
+        </div>
+
+
+    </section>
+
 
 </div>
 
 
-<!-- الأغنية -->
-<audio id="music" loop preload="auto">
-    <source src="aya.mp3" type="audio/mpeg">
+<!-- =========================
+     AUDIO
+========================= -->
+
+<audio
+    id="music"
+    src="aya.mp3"
+    loop
+    preload="auto">
 </audio>
+
+
+<!-- زر الموسيقى -->
 
 <button
     id="musicButton"
     class="musicButton"
-    style="display:none"
-    onclick="toggleMusic()">
+    onclick="toggleMusic()"
+    style="display:none;"
+>
     🔊
 </button>
 
 
 <script>
 
-const PASSWORD = "3394";
+/* =========================
+   PASSWORD
+========================= */
 
-function openMessage(){
+const correctPassword = "3394";
 
-    const input = document.getElementById("password");
-    const error = document.getElementById("error");
 
-    if(input.value === PASSWORD){
+function openMessage() {
 
-        document.getElementById("lockScreen").style.display = "none";
-        document.getElementById("mainContent").style.display = "block";
-        document.getElementById("musicButton").style.display = "block";
+    const passwordInput =
+        document.getElementById("password");
 
-        const music = document.getElementById("music");
+    const password =
+        passwordInput.value.trim();
 
-        /* تشغيل الأغنية بعد الضغط على زر الفتح */
-        music.currentTime = 0;
+    const error =
+        document.getElementById("error");
 
-        music.play().catch(function(){
-            console.log("اضغط زر السماعة لتشغيل الأغنية");
+
+    if (password === correctPassword) {
+
+        /* إخفاء شاشة الباسورد */
+
+        document.getElementById("lockScreen").style.display =
+            "none";
+
+
+        /* إظهار الصفحة */
+
+        document.getElementById("mainContent").style.display =
+            "block";
+
+
+        /* إظهار زر الموسيقى */
+
+        document.getElementById("musicButton").style.display =
+            "block";
+
+
+        /* تشغيل الأغنية */
+
+        const music =
+            document.getElementById("music");
+
+        music.play().catch(function() {
+
+            console.log(
+                "اضغط زر السماعة لتشغيل الأغنية"
+            );
+
         });
 
-    }else{
+    } else {
 
-        error.textContent = "الباسورد غلط يا آية ❤️ جربي تاني";
+        error.innerHTML =
+            "الباسورد غلط يا Aya ❤️";
 
-        input.value = "";
+        passwordInput.value = "";
 
-        setTimeout(function(){
-            error.textContent = "";
-        },2500);
+        passwordInput.focus();
+
     }
+
 }
 
 
-/* السماح بفتح الرسالة بزر Enter */
-document.getElementById("password").addEventListener("keydown",function(e){
+/* =========================
+   ENTER KEY
+========================= */
 
-    if(e.key === "Enter"){
-        openMessage();
-    }
+document
+    .getElementById("password")
+    .addEventListener("keydown", function(event) {
 
-});
+        if (event.key === "Enter") {
+
+            openMessage();
+
+        }
+
+    });
 
 
-function toggleMusic(){
+/* =========================
+   MUSIC
+========================= */
 
-    const music = document.getElementById("music");
-    const button = document.getElementById("musicButton");
+function toggleMusic() {
 
-    if(music.paused){
+    const music =
+        document.getElementById("music");
+
+    const button =
+        document.getElementById("musicButton");
+
+
+    if (music.paused) {
 
         music.play();
 
-        button.textContent = "🔊";
+        button.innerHTML = "🔊";
 
-    }else{
+    } else {
 
         music.pause();
 
-        button.textContent = "🔇";
+        button.innerHTML = "🔇";
 
     }
 
@@ -604,5 +1235,7 @@ function toggleMusic(){
 
 </script>
 
+
 </body>
+
 </html>
